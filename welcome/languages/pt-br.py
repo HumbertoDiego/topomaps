@@ -34,6 +34,10 @@
 'Cache contains items up to **%(hours)02d** %%{hour(hours)} **%(min)02d** %%{minute(min)} **%(sec)02d** %%{second(sec)} old.': 'Cache contains items up to **%(hours)02d** %%{hour(hours)} **%(min)02d** %%{minute(min)} **%(sec)02d** %%{second(sec)} old.',
 'Cache Keys': 'Chaves de cache',
 'Cannot be empty': 'Não pode estar vazio',
+<<<<<<< HEAD
+=======
+'Change Password': 'Change Password',
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 'change password': 'mudar senha',
 'Check to delete': 'Marque para apagar',
 'Clear CACHE?': 'Limpar CACHE?',
@@ -43,6 +47,10 @@
 'Community': 'Comunidade',
 'Components and Plugins': 'Componentes e Plugins',
 'Config.ini': 'Config.ini',
+<<<<<<< HEAD
+=======
+'Confirm Password': 'Confirm Password',
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 'Controller': 'Controlador',
 'Copyright': 'Copyright',
 'Current request': 'Requisição atual',
@@ -85,6 +93,10 @@
 'Graph Model': 'Graph Model',
 'Grid Example': 'Exemplo de Grade',
 'Group ID': 'ID do Grupo',
+<<<<<<< HEAD
+=======
+'Group uniquely assigned to user %(id)s': 'Group uniquely assigned to user %(id)s',
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 'Groups': 'Grupos',
 'Hello World': 'Olá Mundo',
 'Helping web2py': 'Helping web2py',
@@ -96,6 +108,10 @@
 'Index': 'Início',
 'insert new': 'inserir novo',
 'insert new %s': 'inserir novo %s',
+<<<<<<< HEAD
+=======
+'Insufficient privileges': 'Insufficient privileges',
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 'Internal State': 'Estado Interno',
 'Introduction': 'Introdução',
 'Invalid email': 'Email inválido',
@@ -109,9 +125,17 @@
 'Live chat': 'Chat ao vivo',
 'Live Chat': 'Chat ao vivo',
 'Log In': 'Entrar',
+<<<<<<< HEAD
 'login': 'Entrar',
 'Login': 'Entrar',
 'logout': 'Sair',
+=======
+'Logged in': 'Logged in',
+'login': 'Entrar',
+'Login': 'Entrar',
+'logout': 'Sair',
+'Logout': 'Logout',
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 'Lost Password': 'Esqueceu sua senha?',
 'lost password?': 'esqueceu sua senha?',
 'Lost your password?': 'Esqueceu sua senha?',
@@ -128,6 +152,10 @@
 'next %s rows': 'próximas %s ´linhas',
 'next 100 rows': 'próximas 100 linhas',
 'No databases in this application': 'Não há bancos de dados nesta aplicação',
+<<<<<<< HEAD
+=======
+'Not Authorized': 'Not Authorized',
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 'Number of entries: **%s**': 'Número de entradas: **%s**',
 'Object or table name': 'Nome do objeto do da tabela',
 'Online book': 'Online book',
@@ -145,6 +173,10 @@
 'Preface': 'Prefácio',
 'previous %s rows': '%s linhas anteriores',
 'previous 100 rows': '100 linhas anteriores',
+<<<<<<< HEAD
+=======
+'Profile': 'Profile',
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 'pygraphviz library not found': 'biblioteca pygraphviz não encontrada',
 'Python': 'Python',
 'Query:': 'Consulta:',
@@ -158,8 +190,13 @@
 'record does not exist': 'registro não existe',
 'Record ID': 'ID do Registro',
 'Record id': 'id do registro',
+<<<<<<< HEAD
 'register': 'Registre-se',
 'Register': 'Registre-se',
+=======
+'Register': 'Registre-se',
+'register': 'Registre-se',
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 'Registration identifier': 'Idenficador de registro',
 'Registration key': 'Chave de registro',
 'Remember me (for 30 days)': 'Mantenha-me logado (por 30 dias)',

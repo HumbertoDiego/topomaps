@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 timestamp: 2018-08-22T09:01:14.801179
+=======
+timestamp: 2018-08-21T22:52:04.120864
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -10,21 +14,33 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
+<<<<<<< HEAD
 timestamp: 2018-08-22T09:01:14.902098
+=======
+timestamp: 2018-08-21T22:52:04.138536
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
+<<<<<<< HEAD
 timestamp: 2018-08-22T09:01:15.028169
+=======
+timestamp: 2018-08-21T22:52:04.146145
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
+<<<<<<< HEAD
 timestamp: 2018-08-22T09:01:15.160665
+=======
+timestamp: 2018-08-21T22:52:04.156096
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -33,7 +49,11 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
+<<<<<<< HEAD
 timestamp: 2018-08-22T09:01:15.297115
+=======
+timestamp: 2018-08-21T22:52:04.168765
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -43,7 +63,11 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
+<<<<<<< HEAD
 timestamp: 2018-08-22T09:01:15.439541
+=======
+timestamp: 2018-08-21T22:52:04.177441
+>>>>>>> e54eb10ab0a8dbf7b6f700c79685e319d217fb3a
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
