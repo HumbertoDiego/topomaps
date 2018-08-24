@@ -3,7 +3,7 @@ import os
 import TileStache as ts
 from geoip import open_database
 import time
-import osgeo.ogr
+
 
 def index():
     bd = open_database(os.getcwd()+ "/GeoLite2-City.mmdb")

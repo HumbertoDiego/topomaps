@@ -27,13 +27,18 @@
     <script type="text/javascript">
         $( "#mapid2" ).height( "100vh" )
         var tilesUrl2 = 'https://mapsmaps.pythonanywhere.com/default/gettile/example/{z}/{x}/{y}.png'
-        var wmts = 'http://localhost:8080/geoserver/gwc/service/wmts?'
-        var wms = 'http://localhost:8080/geoserver/ows?'
         tilesLayer2 = new L.TileLayer(tilesUrl2);
 
+        var wmtsurl = 'http://localhost:8080/geoserver/gwc/service/wmts?'
+
+        var wmsurl = 'http://localhost:8080/geoserver/ows?'
+        var wmsLayer = L.tileLayer.wms(wmsurl, { layers: 'tiger-ny'})
+
         map2 = new L.Map('mapid2');
-        map2.addLayer(tilesLayer2);
-        map2.setView([-5,-60], 5);
+//         map2.addLayer(tilesLayer2);
+        map2.setView([-74,40.75], 5);
+        map.fitBounds(wmsLayer.getBounds());
+        map2.addLayer(wmsLayer);
 
     </script>
 {{end page_js}}

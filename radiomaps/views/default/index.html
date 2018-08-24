@@ -31,12 +31,13 @@
 
         var wmtsurl = 'http://localhost:8080/geoserver/gwc/service/wmts?'
 
-        var wmslurl = 'http://localhost:8080/geoserver/ows?'
+        var wmsurl = 'http://localhost:8080/geoserver/ows?'
         var wmsLayer = L.tileLayer.wms(wmsurl, { layers: 'tiger-ny'})
 
         map2 = new L.Map('mapid2');
 //         map2.addLayer(tilesLayer2);
-//         map2.setView([-5,-60], 5);
+        map2.setView([-74,40.75], 5);
+//         map.fitBounds(wmsLayer.getBounds());
         map2.addLayer(wmsLayer);
 
     </script>

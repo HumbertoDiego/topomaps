@@ -12,7 +12,6 @@ def index():
     else:
         pos = str(request.client) + " não consta no Banco GeoLite2-City"
     print pos
-    dd = dir(osgeo)
     #  {ip: 191.189.19.105, subdivisions: frozenset([AM]), location: (-3.1133, -60.0253), country: BR,timezone: America/Manaus, continent:SA}
     return locals()
 
