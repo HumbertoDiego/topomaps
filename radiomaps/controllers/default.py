@@ -9,9 +9,11 @@ def index():
 
     pos = tools.get_pos(request.client)
 
-    layer="tasmania"#"tiger-ny"
+    layer="tiger-ny"#"tasmania"#"tiger-ny"
     extent = tools.get_extent(layer)
-    print extent
+    pos=dbpg().select(dbpg.ippos.ALL, orderby=dbpg.ippos.id)
+
+#     tools.pgis()
 
     sys.stdout = sys.__stdout__ # Reset to the standard output
 

@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S'<type \'exceptions.RuntimeError\'> Failure to connect, tried 5 times:\nTraceback (most recent call last):\n  File "/var/www/web2py/gluon/packages/dal/pydal/base.py", line 455, in __init__\n    self._adapter = adapter(**kwargs)\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/postgres.py", line 13, in __call__\n    return AdapterMeta.__call__(cls, *args, **kwargs)\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/__init__.py", line 40, in __call__\n    obj = super(AdapterMeta, cls).__call__(*args, **kwargs)\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/postgres.py", line 48, in __init__\n    driver_args, adapter_args, do_connect, after_connection)\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/base.py", line 369, in __init__\n    super(SQLAdapter, self).__init__(*args, **kwargs)\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/base.py", line 50, in __init__\n    self.find_driver()\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/base.py", line 94, in find_driver\n    \'Driver %s is not available\' % requested_driver)\nRuntimeError: Driver psycopg2 is not available\n'
+p3
+sS'layer'
+p4
+S'/var/www/web2py/applications/radiomaps/models/db.py'
+p5
+sS'code'
+p6
+S'<code object <module> at 0x7f2f0df1db30, file "/var/www/web2py/applications/radiomaps/models/db.py", line 7>'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/var/www/web2py/gluon/restricted.py", line 219, in restricted\n    exec(ccode, environment)\n  File "/var/www/web2py/applications/radiomaps/models/db.py", line 150, in <module>\n    dbpg = DAL("postgres2:psycopg2://geoserver:geoserver@localhost:5432/geoserver", pool_size=10)\n  File "/var/www/web2py/gluon/packages/dal/pydal/base.py", line 170, in __call__\n    obj = super(MetaDAL, cls).__call__(*args, **kwargs)\n  File "/var/www/web2py/gluon/packages/dal/pydal/base.py", line 475, in __init__\n    "Failure to connect, tried %d times:\\n%s" % (attempts, tb)\nRuntimeError: Failure to connect, tried 5 times:\nTraceback (most recent call last):\n  File "/var/www/web2py/gluon/packages/dal/pydal/base.py", line 455, in __init__\n    self._adapter = adapter(**kwargs)\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/postgres.py", line 13, in __call__\n    return AdapterMeta.__call__(cls, *args, **kwargs)\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/__init__.py", line 40, in __call__\n    obj = super(AdapterMeta, cls).__call__(*args, **kwargs)\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/postgres.py", line 48, in __init__\n    driver_args, adapter_args, do_connect, after_connection)\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/base.py", line 369, in __init__\n    super(SQLAdapter, self).__init__(*args, **kwargs)\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/base.py", line 50, in __init__\n    self.find_driver()\n  File "/var/www/web2py/gluon/packages/dal/pydal/adapters/base.py", line 94, in find_driver\n    \'Driver %s is not available\' % requested_driver)\nRuntimeError: Driver psycopg2 is not available\n\n'
+p11
+s.

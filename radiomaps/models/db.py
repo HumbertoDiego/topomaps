@@ -5,7 +5,7 @@
 # Auth is for authenticaiton and access control
 # -------------------------------------------------------------------------
 from gluon.contrib.appconfig import AppConfig
-from gluon.tools import Auth
+from gluon.tools import Auth, Service, PluginManager, Mail
 
 # -------------------------------------------------------------------------
 # This scaffolding model makes your app work on Google App Engine too
@@ -146,3 +146,12 @@ response.google_analytics_id = configuration.get('google.analytics_id')
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
+# Descobrir a sintaxe web2py de uma tabela do postgres >>> python extract_pgsql_models.py 'db' localhost 5432 'user' 'senha'
+dbpg = DAL("postgres2:psycopg2://geoserver:geoserver@localhost:5432/geoserver", pool_size=10)
+migrate = True
+dbpg.define_table('ippos',
+    Field('id', type='id'),
+    Field('ip', type='string', length=20),
+    Field('descricao',type='string', length=80),
+    Field('pos', 'geometry()'),
+    migrate=migrate)
