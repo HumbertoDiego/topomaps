@@ -6,7 +6,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Home'), False, URL('default', 'index'), [])
+    (T('Geoserver'), False, URL("192.168.56.30:8080/geoserver/web"), [])
 ]
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -45,12 +45,5 @@ if not configuration.get('app.production'):
                 'admin', 'default', 'errors/' + _app)),
             (T('About'), False, URL(
                 'admin', 'default', 'about/' + _app)),
-        ]),
-        (T('Community'), False, None, [
-            (T('Groups'), False,
-             'http://www.web2py.com/examples/default/usergroups'),
-            (T('Twitter'), False, 'http://twitter.com/web2py'),
-            (T('Live Chat'), False,
-             'http://webchat.freenode.net/?channels=web2py'),
         ]),
     ]

@@ -1,17 +1,20 @@
 # -*- coding: utf-8 -*-
-import os
+import os, sys
 import TileStache as ts
-from geoip import open_database
 import time
-
+import tools
 
 def index():
-    bd = open_database(os.getcwd()+ "/GeoLite2-City.mmdb")
-    if bd.lookup(request.client)!=None:
-        pos = str(bd.lookup(request.client).to_dict()).replace("'","")
-    else:
-        pos = str(request.client) + " não consta no Banco GeoLite2-City"
-    print pos
+    sys.stdout = open('output.logs', 'w') # Joga a saída dos prints para o arquivo output.logs >> tail -F output.logs
+
+    pos = tools.get_pos(request.client)
+
+    layer="tasmania"#"tiger-ny"
+    extent = tools.get_extent(layer)
+    print extent
+
+    sys.stdout = sys.__stdout__ # Reset to the standard output
+
     #  {ip: 191.189.19.105, subdivisions: frozenset([AM]), location: (-3.1133, -60.0253), country: BR,timezone: America/Manaus, continent:SA}
     return locals()
 
