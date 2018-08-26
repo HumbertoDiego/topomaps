@@ -6,6 +6,7 @@ import tools
 from gluon.serializers import loads_json
 import json
 from gluon.dal import DAL, Field, geoPoint, geoLine, geoPolygon
+import random
 
 def index():
 
@@ -41,11 +42,13 @@ def index():
 # https://192.168.56.30/radiomaps/default/streamer/pna.MP3 # 13MB Stream
 # https://192.168.56.30/radiomaps/default/streamer/pantera.mp4 # 2GB Stream
 def streamer():
-    filename=request.args[0]
-    print filename
-    path=os.path.join(request.folder,'static',filename)
+    sys.stdout = open('output.logs', 'w') # Joga a saída dos prints para o arquivo output.logs >> tail -F output.logs
+#     filename=request.args[0]
+    filename = random.choice(['1q83b.mp3','beat.mp3','bpm.mp3','laugh.mp3'])
+    path=os.path.join(request.folder,'static/sounds', filename)
 #     response.stream(file, chunk_size, request=request, attachment=False, filename=None)
-    return response.stream(open(path,'rb'),chunk_size=4096)
+    sys.stdout = sys.__stdout__ # Reset to the standard output
+    return response.stream(open(path, 'rb'),chunk_size=4096)
 
 ############################## REST API, função interna e API de retorno das posições como GeoJson #############################
 # https://192.168.56.30/radiomaps/default/get_geojson
