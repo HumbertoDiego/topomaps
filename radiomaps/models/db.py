@@ -152,6 +152,6 @@ migrate = True
 dbpg.define_table('ippos',
     Field('id', type='id'),
     Field('ip', type='string', length=20),
-    Field('descricao',type='string', length=80),
+    Field('descricao',type='string', length=180),
     Field('pos', 'geometry()'),
     migrate=migrate)

@@ -3,24 +3,83 @@ import os, sys
 import TileStache as ts
 import time
 import tools
+from gluon.serializers import loads_json
+import json
+from gluon.dal import DAL, Field, geoPoint, geoLine, geoPolygon
 
 def index():
+
     sys.stdout = open('output.logs', 'w') # Joga a saída dos prints para o arquivo output.logs >> tail -F output.logs
 
-    pos = tools.get_pos(request.client)
+    # Se o cliente for Local ou o adaptador de rede
+    if request.client=='127.0.0.1' or request.client=='192.168.56.1':
+        print request.client
 
-    layer="tiger-ny"#"tasmania"#"tiger-ny"
-    extent = tools.get_extent(layer)
-    pos=dbpg().select(dbpg.ippos.ALL, orderby=dbpg.ippos.id)
+    ip = tools.ipv4_generator() #  ip = request.client
+    desc , lat, lng = tools.get_pos(ip)   #  ip = request.client
+    dbpg.ippos.insert(ip=ip, descricao=desc , pos=geoPoint(lng, lat))
 
+########## Acionar a entrega de serviço WMS de Geoserver ao Leaflet - obsoleto
+#     layer="radiomaps:ippos"#"tasmania"#"tiger-ny"
+#     extent = tools.get_wms_extent(layer)
+### Na View:
+#//          var wmsurl = 'http://192.168.56.30:8080/geoserver/ows?'
+#//          var wmsLayer = L.tileLayer.wms(wmsurl, { layers: '{{=layer}}',format: 'image/png',  transparent: true})
+#//         map2.fitBounds({{=extent}},{padding:[100,100]});
+#//         map2.addLayer(wmsLayer);
+
+######### Acionar a entrega de GeoJSon ao Leaflet
+    str_json = get_geojson2()
 #     tools.pgis()
 
     sys.stdout = sys.__stdout__ # Reset to the standard output
 
-    #  {ip: 191.189.19.105, subdivisions: frozenset([AM]), location: (-3.1133, -60.0253), country: BR,timezone: America/Manaus, continent:SA}
     return locals()
 
+# https://192.168.56.30/radiomaps/default/streamer/ready.mkv # 2GB Download...
+# https://192.168.56.30/radiomaps/default/streamer/bludv.mp4 # 30MB Stream
+# https://192.168.56.30/radiomaps/default/streamer/pna.MP3 # 13MB Stream
+# https://192.168.56.30/radiomaps/default/streamer/pantera.mp4 # 2GB Stream
+def streamer():
+    filename=request.args[0]
+    print filename
+    path=os.path.join(request.folder,'static',filename)
+#     response.stream(file, chunk_size, request=request, attachment=False, filename=None)
+    return response.stream(open(path,'rb'),chunk_size=4096)
+
+############################## REST API, função interna e API de retorno das posições como GeoJson #############################
+# https://192.168.56.30/radiomaps/default/get_geojson
+# https://192.168.56.30/get_geojson
+# string = json.dumps(dicionario) , json = json.loads(string de json)
 @request.restful()
+def get_geojson():
+    def GET(*args, **vars):
+        rows=dbpg().select(dbpg.ippos.ip, dbpg.ippos.descricao, dbpg.ippos.pos.st_asgeojson(), orderby=dbpg.ippos.id)
+        features= [{"type": "Feature",
+                    "properties": { "popupContent": r[dbpg.ippos.ip]+"</br>"+r[dbpg.ippos.descricao] },
+                    "geometry": loads_json(r[dbpg.ippos.pos.st_asgeojson()])} for r in rows]
+        return response.json({"type": "FeatureCollection", 'features': features})
+    return locals()
+
+def get_geojson2():
+    rows=dbpg().select(dbpg.ippos.ip, dbpg.ippos.descricao, dbpg.ippos.pos.st_asgeojson(), orderby=dbpg.ippos.id)
+    features= [{"type": "Feature",
+                "properties": { "popupContent": r[dbpg.ippos.ip]+"</br>"+r[dbpg.ippos.descricao] },
+                "geometry": loads_json(r[dbpg.ippos.pos.st_asgeojson()])} for r in rows]
+    return json.dumps(dict(type= "FeatureCollection", features= features))
+
+def get_geojson3():
+    rows=dbpg().select(dbpg.ippos.ip, dbpg.ippos.descricao, dbpg.ippos.pos.st_asgeojson(), orderby=dbpg.ippos.id)
+    features= [{"type": "Feature",
+                "properties": {
+                "popupContent": r[dbpg.ippos.ip]
+                },
+                "geometry": loads_json(r[dbpg.ippos.pos.st_asgeojson()])} for r in rows]
+    return response.json(dict(type= "FeatureCollection", features= features))
+
+############################## REST API de retorno das partes do mapa servido por Tilestache #############################
+# https://192.168.56.30/radiomaps/default/gettile
+# https://192.168.56.30/gettile
 def gettile():
     def GET(layer,zoom,x,y):
         ini = time.clock()
@@ -87,3 +146,6 @@ def download():
     http://..../[app]/default/download/[filename]
     """
     return response.download(request, db)
+
+def call():
+    return service()

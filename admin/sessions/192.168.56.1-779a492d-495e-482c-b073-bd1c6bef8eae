@@ -1,95 +1,10 @@
-(dp1
-S'_user_agent'
-p2
-cgluon.storage
+€cgluon.globals
+Session
+q}q(U_user_agentqcgluon.storage
 Storage
-p3
-((dp4
-S'platform'
-p5
-g3
-((dp6
-S'version'
-p7
-S'X 10.13'
-p8
-sS'name'
-p9
-S'Mac OS'
-p10
-stRp11
-sS'is_tablet'
-p12
-I00
-sS'is_mobile'
-p13
-I00
-sS'bot'
-p14
-I00
-sS'flavor'
-p15
-g3
-((dp16
-g7
-g8
-sg9
-S'MacOS'
-p17
-stRp18
-sS'os'
-p19
-g3
-((dp20
-g9
-S'Macintosh'
-p21
-stRp22
-sS'browser'
-p23
-g3
-((dp24
-g7
-S'61.0'
-p25
-sg9
-S'Firefox'
-p26
-stRp27
-stRp28
-sS'pam_user'
-p29
-NsS'_secure'
-p30
-I01
-sS'check_version'
-p31
-I00
-sS'hmac_key'
-p32
-S'59fcac64-ed01-47f3-8707-11bf75c78086'
-p33
-sS'token'
-p34
-S'4db476bf-97e3-4e3d-854c-d6b2b716ee0a'
-p35
-sg13
-S'auto'
-p36
-sS'authorized'
-p37
-I01
-sS'_formkey[appupdate/create]'
-p38
-(lp39
-S'829c7d19-2021-4ea7-8086-f2ff3db1a82f'
-p40
-asS'_formkey[appcreate/create]'
-p41
-(lp42
-S'95ba0fb0-9f84-48cf-8337-752b3eb5cc6c'
-p43
-asS'last_time'
-p44
-F1535215656.7313881
-s.
+q}q(Uplatformqh}q(UversionqUX 10.13q	Unameq
+UMac OSqu…RqU	is_tabletq‰U	is_mobileq‰Ubotq‰Uflavorqh}q(hh	h
+UMacOSqu…RqUosqh}qh
+U	Macintoshqs…RqUbrowserqh}q(hU61.0qh
+UFirefoxqu…Rqu…RqUpam_userqNU_secureqˆUcheck_versionq ‰Uhmac_keyq!U$59fcac64-ed01-47f3-8707-11bf75c78086q"Utokenq#U$4db476bf-97e3-4e3d-854c-d6b2b716ee0aq$hUautoq%U
+authorizedq&ˆU_formkey[appupdate/create]q']q(U$829c7d19-2021-4ea7-8086-f2ff3db1a82fq)aU_formkey[appcreate/create]q*]q+U$95ba0fb0-9f84-48cf-8337-752b3eb5cc6cq,aU	last_timeq-GAÖàp7 u…Rq..

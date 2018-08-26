@@ -1,4 +1,4 @@
-timestamp: 2018-08-25T12:30:43.245576
+timestamp: 2018-08-25T18:17:50.325832
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -10,21 +10,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-timestamp: 2018-08-25T12:30:43.274662
+timestamp: 2018-08-25T18:17:50.352348
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-timestamp: 2018-08-25T12:30:43.293352
+timestamp: 2018-08-25T18:17:50.369061
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2018-08-25T12:30:43.313786
+timestamp: 2018-08-25T18:17:50.393954
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -33,7 +33,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-timestamp: 2018-08-25T12:30:43.335077
+timestamp: 2018-08-25T18:17:50.422995
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -43,7 +43,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2018-08-25T12:30:43.359819
+timestamp: 2018-08-25T18:17:50.449839
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -53,15 +53,18 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2018-08-25T12:30:43.387240
+timestamp: 2018-08-25T18:17:50.476008
 CREATE TABLE "ippos"(
     "id" SERIAL PRIMARY KEY,
     "ip" VARCHAR(20),
-    "desc" VARCHAR(80)
+    "descricao" VARCHAR(80)
 );
 success!
-timestamp: 2018-08-25T12:34:44.087736
-ALTER TABLE "ippos" ADD "descricao" VARCHAR(80);
-timestamp: 2018-08-25T12:34:44.100479
-ALTER TABLE "ippos" DROP COLUMN "desc";
+timestamp: 2018-08-26T10:34:00.421266
+ALTER TABLE "ippos" ADD "descricao__tmp" VARCHAR(180);
+UPDATE "ippos" SET "descricao__tmp"="descricao";
+ALTER TABLE "ippos" DROP COLUMN "descricao";
+ALTER TABLE "ippos" ADD "descricao" VARCHAR(180);
+UPDATE "ippos" SET "descricao"="descricao__tmp";
+ALTER TABLE "ippos" DROP COLUMN "descricao__tmp";
 success!

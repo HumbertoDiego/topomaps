@@ -71,10 +71,10 @@ p27
 I00
 sS'length'
 p28
-I80
+I180
 sS'sql'
 p29
-S'VARCHAR(80)'
+S'VARCHAR(180)'
 p30
 sS'unique'
 p31
